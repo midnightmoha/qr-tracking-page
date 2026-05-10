@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Message</title>
+
+  <!--
+    HOW THIS WORKS:
+
+    1. Upload this file to Vercel, Netlify, or GitHub Pages.
+    2. Generate a QR code pointing to the hosted URL.
+    3. Every time someone opens the page, it sends a tracking request.
+
+    EASY TEST METHOD:
+
+    - Go to https://webhook.site
+    - Copy your unique URL
+    - Replace TRACKING_URL below
+
+    Then whenever someone opens this page,
+    webhook.site will instantly show the visit.
+  -->
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      background: white;
+      max-width: 700px;
+      width: 100%;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .images img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      color: #222;
+    }
+
+    p {
+      color: #555;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 13px;
+      color: #999;
+    }
+
+    @media (max-width: 600px) {
+      .images {
+        grid-template-columns: 1fr;
+      }
+
+      .images img {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="images">
+      <img src="https://picsum.photos/400/400?1" alt="Image 1">
+      <img src="https://picsum.photos/400/400?2" alt="Image 2">
+      <img src="https://picsum.photos/400/400?3" alt="Image 3">
+    </div>
+
+    <h1>Thank You For Scanning</h1>
+
+    <p>
+      This is a simple private landing page example.
+      You can replace these images and this text with anything you want:
+      a business proposal, portfolio, personal message, product info,
+      company introduction, or exclusive content.
+    </p>
+
+    <div class="footer">
+      QR Tracking Demo Page
+    </div>
+  </div>
+
+  <script>
+    // =========================
+    // TRACKING CONFIGURATION
+    // =========================
+
+    // Replace this with your Webhook.site URL
+    const TRACKING_URL = "https://webhook.site/YOUR-UNIQUE-ID";
+
+    // Unique ID for this QR code/person
+    const qrId = "PRIVATE_LETTER_001";
+
+    // Gather simple visit info
+    const visitData = {
+      qrId,
+      openedAt: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      language: navigator.language,
+      screenSize: `${window.screen.width}x${window.screen.height}`,
+      page: window.location.href
+    };
+
+    // Send tracking request
+    fetch(TRACKING_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(visitData)
+    })
+    .then(() => {
+      console.log("Visit tracked successfully");
+    })
+    .catch((err) => {
+      console.log("Tracking failed", err);
+    });
+  </script>
+</body>
+</html>
