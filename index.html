@@ -87,6 +87,13 @@
 .music-button:hover {
   opacity: 0.85;
 }
+    .music-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
   </style>
 </head>
 <body>
@@ -98,13 +105,19 @@
       Below are a few things I wanted to share with you.
     </p>
 
-    <button class="music-button" onclick="document.getElementById('bg-music').play()">
-    ▶ Play Music
-    </button>
+    <div class="music-controls">
+  <button class="music-button" onclick="document.getElementById('bg-music').play()">
+    ▶
+  </button>
 
-    <audio id="bg-music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-    </audio>
+  <button class="music-button" onclick="document.getElementById('bg-music').pause()">
+    ⏸
+  </button>
+</div>
+
+<audio id="bg-music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
     <div class="section">
       <img src="pic1.jpg" alt="Image 1">
