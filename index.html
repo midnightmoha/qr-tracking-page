@@ -45,41 +45,28 @@
       text-align: center;
     }
 
-    .images {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 25px;
-    }
-
-    .images img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    h1 {
-      margin-bottom: 15px;
+        .headline {
+      margin-bottom: 10px;
       color: #222;
+      font-size: 34px;
     }
 
-    p {
-      color: #555;
+    .intro-text {
+      color: #666;
       line-height: 1.7;
-      font-size: 16px;
+      font-size: 17px;
+      margin-bottom: 40px;
     }
 
-    .footer {
-      margin-top: 25px;
-      font-size: 13px;
-      color: #999;
+    .section {
+      margin-bottom: 45px;
+      text-align: left;
     }
 
-    @media (max-width: 600px) {
-      .images {
-        grid-template-columns: 1fr;
-      }
+    .section img {
+      width: 100%;
+      border-radius: 14px;
+      margin-bo
 
       .images img {
         height: 220px;
@@ -89,20 +76,44 @@
 </head>
 <body>
   <div class="container">
-    <div class="images">
-      <img src="https://picsum.photos/400/400?1" alt="Image 1">
-      <img src="https://picsum.photos/400/400?2" alt="Image 2">
-      <img src="https://picsum.photos/400/400?3" alt="Image 3">
+    <h1 class="headline">A Private Message For You</h1>
+
+    <p class="intro-text">
+      Thank you for taking the time to scan this QR code.
+      Below are a few things I wanted to share with you.
+    </p>
+
+    <div class="section">
+      <img src="https://picsum.photos/900/500?1" alt="Image 1">
+      <p>
+        This is the first image description or supporting text.
+        You can explain anything you want here.
+      </p>
     </div>
 
-    <h1>Thank You For Scanning</h1>
+    <div class="section">
+      <img src="https://picsum.photos/900/500?2" alt="Image 2">
+      <p>
+        This is the second image description.
+        The layout stays vertical on desktop and mobile.
+      </p>
+    </div>
 
-    <p>
-      This is a simple private landing page example.
-      You can replace these images and this text with anything you want:
-      a business proposal, portfolio, personal message, product info,
-      company introduction, or exclusive content.
-    </p>
+    <div class="section">
+      <img src="https://picsum.photos/900/500?3" alt="Image 3">
+      <p>
+        Add another message, explanation, memory,
+        portfolio item, or personal note here.
+      </p>
+    </div>
+
+    <div class="section">
+      <img src="https://picsum.photos/900/500?4" alt="Image 4">
+      <p>
+        Final section text goes here.
+        You can fully customize all images and text.
+      </p>
+    </div>
 
     <div class="footer">
       QR Tracking Demo Page
